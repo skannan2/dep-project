@@ -1,0 +1,58 @@
+<header *ngIf="showSettings">
+   <mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+      <button mat-icon-button (click)="onToggleSidenav()">
+          <mat-icon>menu</mat-icon>
+      </button>
+  </div>
+  <div>
+      <a routerLink="/home">Ticket-Dashboard</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+          <!-- <li>
+              <a routerLink="/owner">Owner Actions</a>
+          </li> -->
+          <li >
+
+              <button mat-icon-button  matTooltip="User settings" (click)=select.open()>
+                  <mat-icon>settings</mat-icon>
+                   <mat-select #select [(ngModel)]="settings" class="langSelect">
+                      <mat-option (click)="changeSetting('settings')" value="Settings">Profile settings</mat-option>
+                      <mat-option (click)="changeSetting('signOut')" value="signOut">Sign Out</mat-option>
+                    </mat-select>
+              </button>
+          </li>
+      </ul>
+  </div>
+</mat-toolbar> 
+</header>
+
+
+
+
+
+<!-- <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black" [containerInside]="true">
+        <mdb-navbar-brand m=0>
+            <a class="logo navbar-brand" routerLink="/">
+              <img src='https://res.cloudinary.com/dvotky5lf/image/upload/v1551091435/logo_cvx2vu.png' />
+            </a>
+
+        </mdb-navbar-brand>
+
+        <ul class="nav justify-content-end grey lighten-4 py-4">
+            <li class="nav-item">
+                <a class="nav-link active" href="#!">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#!">Disabled</a>
+            </li>
+        </ul>
+       
+    </mdb-navbar> -->

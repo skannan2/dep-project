@@ -1,0 +1,749 @@
+.icons {
+    font-size: 25px;
+    mat-icon {
+			padding: 15px;
+			margin: 5px;
+			float: right;
+		}
+}
+
+.icons:hover{
+	cursor: pointer;
+}
+::ng-deep .mat-form-field-infix {
+  // height: 36px;
+  // width: 278px;
+  // font-size: small
+}
+
+// @import "../../../styles/_variable";
+
+// $background-color: $color-silver;
+// $shadow-color: rgba(0, 0, 0, 0.34);
+// $row-odd-background-color: $color-pale-grey;
+// $header-border: 1px solid $color-dark-grey-three;
+// $row-border-color: $color-silver;
+// $checkbox-size: 18px;
+
+// :host {
+//   flex: 1;
+//   border-top: $header-border;
+//   overflow: hidden;
+// }
+
+// .grid {
+//   width: 100%;
+//   height: 100%;
+// }
+
+// :host /deep/ {
+//   .grid-align-center {
+//     justify-content: center;
+//     text-align: center !important;
+
+//     .ag-header-cell-label {
+//       justify-content: center;
+//     }
+//   }
+
+//   .grid-align-right {
+//     justify-content: flex-end;
+//     text-align: right !important;
+//   }
+
+//   .grid-checkbox {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: $checkbox-size;
+//     height: $checkbox-size;
+//     background-color: $color-white;
+//     border: 1px solid $color-cool-grey;
+//     text-align: center;
+//     cursor: pointer;
+
+//     svg {
+//       fill: $color-teal-blue;
+//     }
+
+//     &:not(.readonly) {
+//       &:hover {
+//         outline: 1px solid $color-dark-sand;
+//       }
+//     }
+
+//     &.readonly {
+//       opacity: 0.3;
+//       cursor: default;
+//     }
+//   }
+
+//   .ag-body {
+//     background-color: $background-color;
+
+//     // the dropshadow below the header is a bit tricky due to the imposed layout (a simpler box-shadow is not possible)
+//     &::before {
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       right: 0;
+//       height: 8px;
+//       background: linear-gradient(to bottom, $shadow-color 0%, transparent 100%);
+//       content: ' ';
+//       z-index: 10;
+//     }
+//   }
+
+//   // enable resize within flex containers
+//   .ag-bl-normal-center,
+//   .ag-bl-center {
+//     width: inherit !important;
+//   }
+
+//   .ag-header {
+//     background-color: $color-charcoal-grey-two;
+
+//     .grid-checkbox {
+//       svg {
+//         fill: $color-azure;
+//       }
+//     }
+//   }
+
+//   .ag-header-row {
+//     font-size: 10px;
+//     color: $color-white;
+
+//     &:not(:first-child) {
+//       border-top: $header-border;
+//     }
+
+//     // adjust grid checkbox when placed in the header
+//     .grid-checkbox {
+//       background-color: $color-dark-grey-four;
+//       border-color: $color-gunmetal;
+//     }
+//   }
+
+//   .ag-cell-label-container,
+//   .ag-header-group-cell-label {
+//     border-left: $header-border;
+//     display: flex;
+//     align-items: center;
+//     padding: 0 10px;
+//     overflow: hidden;
+//     height: 22px;
+//   }
+
+//   .ag-header-cell,
+//   .ag-header-group-cell {
+//     &:first-of-type {
+//       .ag-cell-label-container,
+//       .ag-header-group-cell-label {
+//         border-left: 0;
+//       }
+//     }
+
+//     .ag-cell-label-container {
+//       padding: 0 6px 0 10px;
+//     }
+//   }
+
+//   .ag-header-cell-resize {
+//     order: 1;
+//     width: 8px;
+//   }
+
+//   .ag-cell-label-container {
+//     flex-direction: row-reverse; // inverse ag-grid ordering
+//     flex: 1;
+//   }
+
+//   .ag-header-cell-label {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     flex: 1;
+//   }
+
+//   .ag-header-cell-menu-button {
+//     float: none; // break floats in favor of flexbox layout
+//     margin-top: 2px;
+//     cursor: pointer;
+
+//     svg {
+//       fill: $color-silver;
+//     }
+//   }
+
+//   .ag-header-cell-text {
+//     text-transform: uppercase;
+//     margin-right: 2px;
+//     overflow: hidden;
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//   }
+
+//   .ag-header-select-all {
+//     float: none; // break floats in favor of flexbox layout
+
+//     &:not(.ag-hidden) + .ag-cell-label-container {
+//       display: none;
+//     }
+//   }
+
+//   .ag-sort-ascending-icon,
+//   .ag-sort-descending-icon {
+//     order: 1; // push icon after label
+//     margin: 0 2px;
+
+//     svg {
+//       width: 8px;
+//       height: 8px;
+//       fill: $color-silver;
+//     }
+//   }
+
+//   // the counter when using multiple sortings
+//   .ag-sort-order {
+//     order: 2;
+//     margin: 0 2px;
+//     opacity: 0.5;
+//   }
+
+//   .ag-filter-icon {
+//     order: 3; // push icon after label and sort
+//     margin: 0 2px;
+
+//     svg {
+//       width: 10px;
+//       height: 12px;
+//       fill: $color-silver;
+//       margin-top: 2px;
+//     }
+//   }
+
+//   .grid-align-center {
+//     .ag-header-cell-label {
+//       justify-content: center;
+//       margin-left: 14px;
+//     }
+//   }
+
+//   .grid-align-right {
+//     .ag-cell-label-container {
+//       flex-direction: row;
+//     }
+
+//     .ag-header-cell-label {
+//       flex-direction: row-reverse;
+//     }
+
+//     .ag-header-cell-text {
+//       margin-left: 2px;
+//       margin-right: 0;
+//     }
+//   }
+
+//   .ag-row {
+//     font-size: 12px;
+
+//     .grid-checkbox {
+//       background-color: $color-white;
+//     }
+
+//     .red {
+//       background-color: fade-out($color-tomato, 0.86);
+//     }
+//   }
+
+//   .ag-row-odd {
+//     background-color: $color-white-two;
+//     border-top: 1px solid $color-silver-two;
+//     border-bottom: 1px solid $color-silver-two;
+
+//     .blue {
+//       background-color: $color-pale-sky-blue;
+//     }
+//   }
+
+//   .ag-row-even {
+//     background-color: $color-white;
+
+//     .blue {
+//       background-color: $color-very-light-blue;
+//     }
+//   }
+
+//   .ag-cell,
+//   .ag-header-cell,
+//   .ag-header-group-cell {
+//     display: flex;
+//     align-items: center;
+//     overflow: hidden;
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//   }
+
+//   .ag-cell {
+//     padding: 0 10px;
+//   }
+
+//   .ag-cell-focus {
+//     outline: none;
+//   }
+
+//   // Groupings
+//   .grid-group-cell {
+//     .ag-header-select-all {
+//       // when grouping, checkboxes need to be aligned with expand/collapse button (it cannot be centered)
+//       margin-left: 32px;
+//     }
+
+//     &.ag-cell-value > span {
+//       display: flex;
+//       align-items: center;
+//     }
+//   }
+
+//   .ag-group-contracted,
+//   .ag-group-expanded {
+//     margin-right: 4px;
+//     cursor: pointer;
+
+//     &:hover {
+//       svg {
+//         fill: $color-teal-blue;
+//       }
+//     }
+//   }
+
+//   .ag-group-contracted {
+//     svg {
+//       fill: $color-charcoal-grey-four;
+//       width: 14px;
+//       height: 10px;
+//       align-self: center;
+//     }
+//   }
+
+//   .ag-group-expanded {
+//     svg {
+//       fill: $color-charcoal-grey-four;
+//       width: 14px;
+//       height: 8px;
+//     }
+//   }
+
+//   .ag-row:not(.ag-row-group) {
+//     .grid-group-cell {
+//       // align row checkboxes with the value from the next cell
+//       padding: 0 2px 0 0;
+//       justify-content: flex-end;
+//       text-align: right;
+//     }
+//   }
+
+//   .ag-row-group {
+//     .grid-group-cell {
+//       // allow the group cell to overflow to the next cell, similar to a colspan
+//       overflow: visible;
+//     }
+
+//     .ag-group-checkbox {
+//       & > span {
+//         display: flex;
+//         align-items: center;
+//         margin: 0 8px 0 4px;
+//       }
+//     }
+
+//     .ag-group-child-count {
+//       font-size: 10px;
+//       padding-left: 4px;
+//       opacity: 0.5;
+//     }
+//   }
+
+//   // value cells within a group row, AKA aggregate cells
+//   .ag-group-cell:not(.grid-group-cell) {
+//     color: $color-greyish-brown;
+//   }
+
+//   // Column menu
+
+//   .ag-menu {
+//     background-color: $color-charcoal-grey-two;
+//     border: solid 1px $color-charcoal-grey-three;
+//     margin-left: -17px;
+//     box-shadow: 0 4px 12px $shadow-color;
+//     z-index: 100;
+
+//     // Sub-menu, such as pin column
+//     & + .ag-menu {
+//       margin-left: 0;
+//     }
+
+//     .ag-tab {
+//       display: flex;
+//       justify-content: center;
+//       padding-top: 6px;
+//       width: 68px;
+//       height: 30px;
+//       border-right: 2px solid $color-dark-grey;
+
+//       &:hover {
+//         cursor: pointer;
+//       }
+
+//       svg {
+//         fill: $color-silver;
+//       }
+
+//       &:not(.ag-tab-selected) {
+//         background-color: $color-charcoal-grey;
+//         border-bottom: 2px solid $color-dark-grey-three;
+
+//         svg {
+//           fill: $color-dark-sand;
+//         }
+//       }
+//     }
+
+//     .ag-tab-header {
+//       display: flex;
+//       background-color: $color-charcoal-grey-two;
+
+//       &::after {
+//         flex: 1;
+//         border-bottom: 2px solid $color-dark-grey;
+//         content: ' ';
+//       }
+//     }
+
+//     .ag-tab-body {
+//       min-width: 184px;
+//       border: 2px solid $color-dark-grey;
+//       border-top: 0;
+//     }
+//   }
+
+//   .ag-menu-list {
+//     display: flex;
+//     flex-direction: column;
+//   }
+
+//   .ag-tab-body .ag-menu-list {
+//     position: relative;
+//     border-top: 2px solid $color-dark-grey;
+//     margin-top: 8px;
+
+//     &::before {
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       right: 0;
+//       height: 8px;
+//       background: linear-gradient(to bottom, $shadow-color 0%, transparent 100%);
+//       content: ' ';
+//       z-index: 101;
+//       cursor: default;
+//       pointer-events: none;
+//     }
+//   }
+
+//   .ag-menu-option {
+//     display: flex;
+//     align-items: center;
+//     flex-shrink: 0;
+//     height: 28px;
+//     padding: 0 4px;
+//     font-size: 12px;
+//     background-color: $color-pale-grey;
+
+//     &:hover {
+//       background-color: $color-pale-sky-blue !important;
+//     }
+
+//     &:nth-of-type(even) {
+//       background-color: $color-pale-grey;
+//     }
+
+//     &:nth-of-type(odd) {
+//       background-color: $color-white;
+//     }
+
+//     &.ag-menu-option-active {
+//       background-color: $color-pale-sky-blue;
+//     }
+//   }
+
+//   .ag-menu-option-icon {
+//     width: 20px;
+
+//     svg {
+//       fill: $color-black;
+//       max-height: 14px;
+//     }
+//   }
+
+//   .ag-menu-option-text {
+//     display: block;
+//     max-width: 180px;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//   }
+
+//   .ag-menu-option-popup-pointer {
+//     margin-left: auto;
+//     width: 8px;
+//     position: relative;
+//   }
+
+//   // Tools menu
+
+//   .ag-tool-panel {
+//     display: flex;
+//     flex-direction: column;
+//     font-size: 12px;
+//     width: auto;
+//     background-color: $color-dark-grey;
+//     padding: 4px;
+//     margin-top: 10px;
+//     color: $color-white;
+
+//     .grid-checkbox {
+//       margin-right: 8px;
+//       background-color: $color-dark-grey;
+//       border-color: $color-gunmetal;
+//     }
+//   }
+
+//   .ag-pivot-mode {
+//     display: flex;
+//     align-items: center;
+//     flex-shrink: 0;
+//     background-color: $color-charcoal-grey-two;
+//     height: 28px;
+//     padding: 0 8px;
+//     font-size: 14px;
+//   }
+
+//   .ag-pivot-mode-select {
+//     display: flex;
+//     align-items: center;
+//   }
+
+//   .ag-column-select-panel {
+//     padding: 2px 8px;
+//     margin-bottom: 4px;
+//     overflow-x: hidden;
+//     overflow-y: scroll;
+
+//     // IE 11
+//     scrollbar-face-color: $color-charcoal-grey-two;
+//     scrollbar-highlight-color: $color-charcoal-grey-two;
+//     scrollbar-track-color: $color-dark-grey;
+//     scrollbar-arrow-color: $color-charcoal-grey-two;
+//     scrollbar-shadow-color: $color-dark-grey;
+
+//     &::-webkit-scrollbar-track {
+//       background-color: $color-dark-grey;
+//     }
+
+//     &::-webkit-scrollbar-track-piece {
+//       background-color: $color-charcoal-grey-two;
+//     }
+
+//     &::-webkit-scrollbar-track-piece:start {
+//       border-color: $color-dark-grey;
+//     }
+
+//     &::-webkit-scrollbar-track-piece:end {
+//       border-color: $color-dark-grey;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background: $color-charcoal-grey-three;
+//       border-color: $color-dark-grey;
+//     }
+
+//     &::-webkit-scrollbar-corner {
+//       background-color: $color-dark-grey;
+//     }
+//   }
+
+//   .ag-ltr {
+//     .ag-column-select-column {
+//       margin: 6px 0;
+//       display: flex;
+//       align-items: center;
+//     }
+//   }
+
+//   .ag-column-select-indent {
+//     display: none;
+//   }
+
+//   .ag-column-drop {
+//     margin-bottom: 4px;
+//     padding: 2px 2px 4px;
+//     border: 2px dashed $color-charcoal-grey-three;
+//   }
+
+//   .ag-column-drop-icon {
+//     margin: 4px 4px 0 7px;
+//     float: left;
+//   }
+
+//   .ag-column-drop-title {
+//     display: block;
+//     text-transform: uppercase;
+//     font-size: 12px;
+//     margin-top: 4px;
+//   }
+
+//   .ag-column-drop-empty-message {
+//     text-transform: uppercase;
+//     font-size: 12px;
+//     margin: 4px 4px 4px 8px;
+//     opacity: 0.5;
+//   }
+
+//   .ag-column-drop-vertical {
+//     .ag-column-drop-cell {
+//       display: flex;
+//     }
+//   }
+
+//   .ag-column-drop-cell {
+//     padding: 6px 4px 6px 8px;
+//     margin-top: 4px;
+//     background-color: $color-charcoal-grey;
+
+//     &:nth-of-type(2) {
+//       margin-top: 8px;
+//     }
+//   }
+
+//   .ag-column-drop-cell-text {
+//     display: block;
+//     flex: 1;
+//   }
+
+//   .ag-column-drop-cell-button {
+//     display: block;
+//     float: none;
+//     color: $color-charcoal-grey;
+//     background-color: transparentize($color-white, 0.2);
+//     border-radius: 50%;
+//     font-size: 10px;
+//     font-weight: bold;
+//     width: 15px;
+//     height: 15px;
+//     line-height: 15px;
+//     text-align: center;
+//     cursor: pointer;
+
+//     &:hover {
+//       background-color: $color-white;
+//     }
+//   }
+
+//   .ag-column-drop-values {
+//     .ag-column-drop-cell {
+//       cursor: pointer;
+//     }
+//   }
+
+//   .ag-select-agg-func-popup {
+//     border: 2px solid $color-slate-grey;
+
+//     .ag-virtual-list-item {
+//       display: flex;
+//       align-items: center;
+//       font-weight: bold;
+//       font-size: 12px;
+//       height: 20px; // absolute positioning from ag-grid... a pain to restyle
+//       padding-left: 8px;
+//       background-color: $color-pale-grey;
+//       cursor: pointer;
+
+//       &:nth-of-type(odd) {
+//         background-color: $color-white;
+//       }
+
+//       &:hover {
+//         background-color: $color-pale-sky-blue;
+//       }
+//     }
+//   }
+
+//   .ag-select-agg-func-item {
+//     flex: 1;
+//   }
+
+//   // Overlays
+
+//   .grid-overlay-content {
+//     display: inline-block;
+//     background-color: $color-white;
+//     border: 1px solid $color-black;
+//     max-width: 400px;
+//     margin: auto;
+//     font-size: 12px;
+//     padding: 10px;
+//     box-shadow: 0 0 12px transparentize($color-charcoal-grey, 0.5);
+//   }
+
+//   // Drag and drop
+
+//   .ag-dnd-ghost {
+//     display: flex;
+//     align-items: center;
+//     padding: 7px;
+//     border: 1px solid $color-dark-sand;
+//     background-color: $color-charcoal-grey;
+//     color: $color-white;
+//     font-size: 10px;
+//     font-family: Montserrat-Medium, sans-serif;
+//     text-transform: uppercase;
+//     height: auto !important;
+//     line-height: inherit;
+//     box-shadow: 0 2px 8px transparentize($color-charcoal-grey, 0.5);
+//     z-index: 1000;
+
+//     svg {
+//       display: inline-block;
+//       fill: $color-white !important;
+//       opacity: 0.7;
+//     }
+//   }
+
+//   .ag-dnd-ghost-icon {
+//     float: none;
+//     padding: 0;
+//     margin-right: 20px;
+//   }
+
+//   .ag-dnd-ghost-label {
+//     display: block;
+//     flex: 1;
+//   }
+
+//   .ag-body {
+//     color: $color-black;
+//   }
+
+//   .ag-body-no-select * {
+//     user-select: none;
+//   }
+
+//   .ag-filter-filter {
+//     margin: 4px;
+//     width: auto;
+//   }
+// }
+
+   

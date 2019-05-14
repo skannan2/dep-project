@@ -1,0 +1,20 @@
+{
+  "/user-login/*": {
+    "target": "http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/login",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/user-login": ""
+    }
+  },
+  "/ticket/*": {
+    "target": "",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/ticket": ""
+    }
+  }
+}

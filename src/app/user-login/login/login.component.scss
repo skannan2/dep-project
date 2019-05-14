@@ -1,0 +1,28 @@
+
+.fluid-container {
+  height: 100%;
+}
+
+.flexbox-container {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 100%;
+} 
+
+
+mdb-card {
+  width: 60%;
+  margin: auto;
+}
+
+h2 {
+  font-weight: 600!important;
+  text-align: center;
+  padding: 15px;
+  margin: 15px;
+}
