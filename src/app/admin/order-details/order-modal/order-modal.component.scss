@@ -1,0 +1,65 @@
+/* .form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > * {
+  width: 100%;
+} */
+::ng-deep mat-form-field {
+  width: 80%;
+  display: block;
+}
+
+.half-width {
+  width: 39%;
+  margin-right: 2%;
+  display: inline-block;
+
+}
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 50vw;
+  //min-width: 1000px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 18px;
+}
+
+.content {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 55vh;
+  flex: 1;
+}
+
+.footer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.action {
+  color: #0070c9;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+button {
+  outline : none;
+}

@@ -1,0 +1,11 @@
+CI/CD
+
+Cts dev - git
+cts integratn - jenkins
+cts deployment - docker
+
+Docker - Cnntainerizing or pacakaging the code along with dependencies in light weight manner.They can run on any OS 
+
+Angular dependencies - Node js -- npm -- pkg.json
+
+dockerfile in root of app

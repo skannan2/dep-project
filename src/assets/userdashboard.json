@@ -1,0 +1,36 @@
+[
+  {
+    
+    "ticketno": "001",
+    "description": "Order fault",
+    "date": "22/11/2018",
+    "status": "Pending",
+    "priority": "High",
+    "title": "test title",
+    "phone": "+91-7977778899",
+    "email": "test@gmail.com"
+
+  },
+  {
+    
+    "ticketno": "002",
+    "description": "Order fault",
+    "date": "23/11/2018",
+    "status": "In-Progress",
+    "priority": "Medium",
+    "title": "test title",
+     "phone": "+91-6777778899",
+     "email": "test@gmail.com"
+  },
+  {
+   
+    "ticketno": "003",
+    "description": "Order fault",
+    "date": "25/11/2018",
+    "status": "Completed",
+    "priority": "Low",
+    "title": "test title",
+     "phone": "+91-8777778899",
+     "email": "test@gmail.com"
+  }
+]

@@ -1,0 +1,84 @@
+@import "_variable";
+// @import "../../node_modules/normalize.css/normalize.css";
+
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+// @import "~ag-grid-community/dist/styles/ag-theme-material.css";
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'customtheme.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  // font-family: Montserrat-Medium, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: $color-white;
+  background-color: $color-dark-grey;
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: $color-silver-two;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: $color-pale-grey;
+  border-radius: 8px;
+  border: 3px solid $color-silver-two;
+}
+
+::-webkit-scrollbar-track-piece:start {
+  border: 3px solid $color-silver-two;
+}
+
+::-webkit-scrollbar-track-piece:end {
+  border: 3px solid $color-silver-two;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: $color-slate-grey;
+  border: 3px solid $color-silver-two;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: $color-silver-two;
+}
+
+.app-root {
+  // font-family: Montserrat-Medium, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  width: 100vw;
+  min-width: $application-min-width;
+  height: 100vh;
+  min-height: $application-min-height;
+  display: flex;
+  flex-direction: column;
+
+  // TODO: move angular material overwrite style to separate file
+  .mat-raised-button {
+    line-height: 28px;
+  }
+  .mat-raised-button.mat-primary{
+    background-color: $color-dark-grey;
+  }
+  .mat-raised-button.mat-warn[disabled] {
+    background-color: $color-dark-red;
+    color: $color-cool-grey;
+  }
+
+  svg g, svg path {
+    fill: $color-dark-sand;
+  }
+ 
+  
+}
+
+

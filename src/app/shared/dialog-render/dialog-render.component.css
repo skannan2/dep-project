@@ -1,0 +1,7 @@
+.action {
+  color: #0070c9;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

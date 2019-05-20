@@ -1,0 +1,57 @@
+<div class="fluid-container">
+
+
+  <div class="flexbox-container">
+
+
+    <mdb-card>
+      <!--Card content-->
+      <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+          <h2>User Login Form</h2>
+        </mdb-card-title>
+        <!-- Horizontal material form -->
+        <form [formGroup]="LoginForm">
+          <!-- Grid row -->
+          <div class="form-group row">
+            <!-- Material input -->
+            <label for="inputEmail3MD" class="col-sm-2 col-form-label">User Name</label>
+            <div class="col-sm-10">
+              <div class="md-form mt-0">
+                <input mdbInput mdbValidate formControlName="uname" type="text" class="form-control" id="inputEmail3MD" placeholder="User Name">
+                <!-- <mdb-error *ngIf="uname.invalid && (uname.dirty || uname.touched)">User Name is required</mdb-error> -->
+              </div>
+            </div>
+          </div>
+          <!-- Grid row -->
+
+          <!-- Grid row -->
+          <div class="form-group row">
+            <!-- Material input -->
+            <label for="inputPassword3MD" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <div class="md-form mt-0">
+                <input mdbInput mdbValidate formControlName="pwd" type="password" class="form-control" id="inputPassword3MD" placeholder="Password">
+                <!-- <mdb-error *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)">Password is required</mdb-error> -->
+              </div>
+            </div>
+          </div>
+          <!-- Grid row -->
+
+          <!-- Grid row -->
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="button" class="btn btn-primary btn-md" (click)='login()'>Sign in</button>
+
+              <button type="button" class="btn btn-danger btn-md" (click)='openModal()'>Register</button>
+            </div>
+          </div>
+          <!-- Grid row -->
+        </form>
+        <!-- Horizontal material form -->
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+</div>

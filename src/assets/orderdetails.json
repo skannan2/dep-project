@@ -1,0 +1,15 @@
+[
+  {
+    
+    "orderno": "001",
+    "customer": "Murali",
+    "date": "22/11/2018",
+    "orderStatus": "Pending",
+    "priority": "High",
+    "orderTotal": "200,000",
+    "location": "chennai",
+    "phone": "+91-7977778899",
+    "email": "test@gmail.com"
+
+  }
+]

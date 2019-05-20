@@ -1,0 +1,427 @@
+User Mgmt Service - http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com 
+Ticket Mgmt Service - http://ticketmgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com
+
+
+User Service Details
+
+================
+
+ 
+
+Endpont details:
+
+                a. Create User: POST
+
+                                                url: http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/user/create
+
+                                                                Request:
+
+                                                                                {
+
+                                                                                                "userName":"demmy", //userName should be unique
+
+                                                                                                "password":"dummy password",
+
+                                                                                                "email":"dummy@xyz.com", //email should be unique
+
+                                                                                                "phoneNumber":"1234567890",
+
+                                                                                                "address":"dummy address"
+
+                                                                                }
+
+                                                                Response:
+
+                                                                                http status code: 201
+
+                                                                               
+
+                b. Login User and get JWT token: POST
+
+                                                url: http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/login
+
+                                                                Request:
+
+                                                                                {
+
+                                                                                                "userName":"demmy",
+
+                                                                                                "password":"dummy password"
+
+                                                                                }
+
+                                                                Response:
+
+                                                                                http status code: 200
+
+                                                                Response header: Authorization -> Bearer ciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtmV4cCI6MTU2MzA3M30.1Xvd9ruT_QaZi0dQE3pt_eCK49OxkT-56eOFuQ5ne2OUP-IGoicw
+
+               
+
+                c. Get user by userName: GET
+
+                                                url: http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/user/username/<userName>
+
+                                                                Request Header: Authorization:<JWT token>
+
+                                                                Response:
+
+                                                                                http status code: 200
+
+                                                                                Response Body:
+
+                                                                                                {
+
+                                                                                                                "userName":"demmy",
+
+                                                                                                                "password":null,
+
+                                                                                                                "email":"dummy@xyz.com",
+
+                                                                                                                "phoneNumber":"1234567890",
+
+                                                                                                                "address":"dummy address"
+
+                                                                                                                "lastUpdatedTime": "2019-04-03T07:12:00Z",
+
+                                                                                                                "createdTime": "2019-04-03T07:12:00Z"
+
+                                                                                                }
+
+                                                                                               
+
+                d. Get user by user id: GET
+
+                                                url: http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/user/<user Id>
+
+                                                                Request Header: Authorization:<JWT token>
+
+                                                                Response:
+
+                                                                                http status code: 200
+
+                                                                                Response Body:
+
+                                                                                                {
+
+                                                                                                                "userName":"demmy",
+
+                                                                                                                "password":null,
+
+                                                                                                                "email":"dummy@xyz.com",
+
+                                                                                                                "phoneNumber":"1234567890",
+
+                                                                                                                "address":"dummy address"
+
+                                                                                                                "lastUpdatedTime": "2019-04-03T07:12:00Z",
+
+                                                                                                                "createdTime": "2019-04-03T07:12:00Z"
+
+                                                                                                }
+
+                                                                                               
+
+                e. Update user: PUT
+
+                                                url: http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/user/update
+
+                                                                Request Header: Authorization:<JWT token>
+
+                                                                Response:
+
+                                                                                http status code: 200
+
+                                                                               
+
+                f. Update user: DELETE
+
+                                                url: http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/user/<user Id>
+
+                                                                Request Header: Authorization:<JWT token>
+
+                                                                Response:
+
+                                                                                http status code: 204
+
+ 
+
+Ticket Management Service Details
+
+=============================
+
+ 
+
+Create Ticket
+
+ 
+
+URL: http://ticketmgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/api/ticket/createTicket
+
+Request               Response
+
+{
+
+        "ticketid": null,
+
+        "title": "TICKETNEW",
+
+        "description": "TICKETNEW DESC",
+
+        "priority": "HIGH",
+
+        "phone": "9966996612",
+
+        "createdate": null,
+
+        "createby": "ABCDUSER",
+
+        "lastupdatetime": null,
+
+        "lastupdatedby": "ABCDUSER",
+
+        "assignedto": "TEST",
+
+        "status": "PENDING"
+
+}              {
+
+    "code": "200 OK",
+
+    "message": "SUCCESS",
+
+    "data": {
+
+        "ticketid": 9,
+
+        "title": "TICKETNEW",
+
+        "description": "TICKETNEW DESC",
+
+        "priority": "HIGH",
+
+        "phone": "9966996612",
+
+        "createdate": "2019-04-03T14:46:00.667",
+
+        "createby": "ABCDUSER",
+
+        "lastupdatetime": "2019-04-03T14:46:00.667",
+
+        "lastupdatedby": "ABCDUSER",
+
+        "assignedto": "TEST",
+
+        "status": "PENDING"
+
+    }
+
+}
+
+ 
+
+ 
+
+Query Ticket
+
+URL: http://ticketmgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/api/ticket/queryTicket
+
+Request               Response
+
+{
+
+            "ticketid": 11,
+
+            "title": "TICKETNEW",
+
+            "description": "TICKETNEW DESC",
+
+            "priority": "HIGH",
+
+            "phone": "9966996612",
+
+            "createdate": "2019-04-03T14:46:00.667",
+
+            "createby": "ABCDUSER",
+
+            "lastupdatetime": "2019-04-03T14:46:00.667",
+
+            "lastupdatedby": "ABCDUSER",
+
+            "assignedto": "TEST",
+
+            "status": "PENDING"
+
+        }     {
+
+    "code": "200 OK",
+
+    "message": "SUCCESS",
+
+    "data": [
+
+        {
+
+            "ticketid": 11,
+
+            "title": "TICKETNEW",
+
+            "description": "TICKETNEW DESC",
+
+            "priority": "HIGH",
+
+            "phone": "9966996612",
+
+           "createdate": "2019-04-03T14:46:00.667",
+
+            "createby": "ABCDUSER",
+
+            "lastupdatetime": "2019-04-03T14:46:00.667",
+
+            "lastupdatedby": "ABCDUSER",
+
+            "assignedto": "TEST",
+
+            "status": "PENDING"
+
+        }
+
+    ]
+
+}
+
+ 
+
+ 
+
+Get Ticket
+
+URL: http://ticketmgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/api/ticket/getTicketDetails
+
+Request               Response
+
+{
+
+            "ticketid": 11,
+
+            "title": "TICKETNEW",
+
+            "description": "TICKETNEW DESC",
+
+            "priority": "HIGH",
+
+            "phone": "9966996612",
+
+            "createdate": "2019-04-03T14:46:00.667",
+
+            "createby": "ABCDUSER",
+
+            "lastupdatetime": "2019-04-03T14:46:00.667",
+
+            "lastupdatedby": "ABCDUSER",
+
+            "assignedto": "TEST",
+
+            "status": "PENDING"
+
+        }     {
+
+    "code": "200 OK",
+
+    "message": "SUCCESS",
+
+    "data": {
+
+        "ticketid": 11,
+
+        "title": "TICKETNEW",
+
+        "description": "TICKETNEW DESC",
+
+        "priority": "HIGH",
+
+        "phone": "9966996612",
+
+        "createdate": "2019-04-03T14:46:00.667",
+
+        "createby": "ABCDUSER",
+
+        "lastupdatetime": "2019-04-03T14:46:00.667",
+
+        "lastupdatedby": "ABCDUSER",
+
+        "assignedto": "TEST",
+
+        "status": "PENDING"
+
+    }
+
+}
+
+ 
+
+ 
+
+Update Ticket
+
+URL: http://ticketmgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/api/ticket/updateTicket
+
+Request               Response
+
+{
+
+            "ticketid": 11,
+
+            "title": "TICKETNEW",
+
+            "description": "TICKETNEW DESC",
+
+            "priority": "HIGH",
+
+            "phone": "9966996612",
+
+            "createdate": "2019-04-03T14:46:00.667",
+
+            "createby": "ABCDUSER",
+
+            "lastupdatetime": "2019-04-03T14:46:00.667",
+
+            "lastupdatedby": "ABCDUSER",
+
+            "assignedto": "TEST",
+
+            "status": "INPROGRESS"
+
+        }     {
+
+    "code": "200 OK",
+
+    "message": "SUCCESS",
+
+    "data": {
+
+        "ticketid": 11,
+
+        "title": "TICKETNEW",
+
+        "description": "TICKETNEW DESC",
+
+        "priority": "HIGH",
+
+        "phone": "9966996612",
+
+        "createdate": "2019-04-03T14:46:00.667",
+
+        "createby": "ABCDUSER",
+
+        "lastupdatetime": "2019-04-03T14:55:19.129",
+
+        "lastupdatedby": "ABCDUSER",
+
+        "assignedto": "TEST",
+
+        "status": "INPROGRESS"
+
+    }
+
+}
