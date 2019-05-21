@@ -32,6 +32,7 @@ import {
 } from '@angular/material';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { UserSettingComponent } from './user-setting/user-setting.component';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 const materialModules = [
   MatButtonModule,
@@ -54,7 +55,7 @@ const materialModules = [
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, GridComponent, LoaderComponent, DialogRenderComponent, SpinnerComponent, UserSettingComponent],
+  declarations: [HeaderComponent, FooterComponent, GridComponent, LoaderComponent, DialogRenderComponent, SpinnerComponent, UserSettingComponent, SnackbarComponent],
   imports: [
     CommonModule,
      AgGridModule.withComponents([]),

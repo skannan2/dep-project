@@ -24,28 +24,49 @@ export class ApiService {
     return this.http.get('assets/userdashboard.json');
   }
   registerUser(payload) {
-    return this.http.post('/create-user', payload).map((response: Response) => {
+    return this.http.post('/create-user', payload, { observe: 'response' }).pipe(map((response) => {
       console.log('response', response);
       if (response) {
         console.log('response', response);
-        return [{ status: response.status, response: response.json() }];
+        return response;
       }
-    });
+    }));
   }
 
   getOrderDetails() {
     return this.http.get('assets/orderdetails.json');
   }
 
+  getUserDetails() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const token = JSON.parse(localStorage.getItem('token'));
+    return this.http.get('/user/username/' + user, {
+      headers: {
+        'Authorization': token,
+      }
+    });
+  }
+
+  updateUserDetails(userData) {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const token = JSON.parse(localStorage.getItem('token'));
+    return this.http.put('user/username/' + user, userData, {
+      headers: {
+        'Authorization': token,
+      }
+    });
+  }
+
   getTicketDetails() {
     return this.http.get('assets/ticketdetails.json');
   }
 
-  login(user: { userName: string, password: string }): Observable<boolean> {
-    return this.http.post<any>(`/user-login`, user)
+  login(user: { userName: string, password: string }): Observable<any> {
+    return this.http.post<any>(`/user-login`, user, { observe: 'response' })
       .pipe(
-        tap(tokens => console.log(tokens)),
-        mapTo(true),
+        // tap(tokens => console.log(tokens)),
+        // mapTo(true),
+        map((res) => res),
         catchError(error => {
           alert(error.error);
           return of(false);

@@ -4,6 +4,7 @@ import { RegisterComponent } from '../register/register.component';
 import { Router } from '@angular/router';
 import { ApiService } from '../../core/api/api.service';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
     private modalService: MDBModalService,
     private service: ApiService,
     private router: Router,
+    private snackBar: MatSnackBar,
     public fb: FormBuilder) {
     this.LoginForm = fb.group({
       uname: [null, [Validators.required]],
@@ -55,12 +57,21 @@ export class LoginComponent implements OnInit {
       password: this.pwd.value.toString()
     };
     this.service.login(loginPayload).subscribe(data => {
+      // (resp.headers.get('X-Token')
+      console.log(data.headers.get('authorization'));
+      const token = data.headers.get('authorization');
+      localStorage.setItem('token', JSON.stringify(token));
+      localStorage.setItem('user', JSON.stringify(loginPayload.userName));
       if (data) {
+        this.snackBar.open('logged in successfully', 'close', {
+          duration: 2000,
+        });
         this.router.navigate(['/user-dashboard']);
       }
     });
-    console.log(loginPayload);
-    //this.router.navigate(['/user-dashboard'])
+
+    // this.router.navigate(['/user-dashboard']);
+
   }
   ngOnInit() {
   }

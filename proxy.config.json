@@ -1,38 +1,47 @@
 {
-  "/user-login/*": {
+  "/login/*": {
     "target": "http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/login",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,
     "pathRewrite": {
-      "^/user-login": ""
+      "^/login": ""
     }
   },
-  "/ticket/*": {
-    "target": "",
-    "secure": false,
-    "logLevel": "debug",
-    "changeOrigin": true,
-    "pathRewrite": {
-      "^/ticket": ""
-    }
-  },
-  "/create-user/*": {
+  "/user/create/*": {
     "target": "http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/user/create",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,
     "pathRewrite": {
-      "^/create-user": ""
+      "^/user/create/": ""
     }
   },
-  "/create-ticket/*": {
+  "/user/username/*": {
+    "target": "",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/ticket": "http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/user/username"
+    }
+  },
+  "/user/update/*": {
+    "target": "",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/user/update": "http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/user/username"
+    }
+  },
+  "/api/ticket/createTicket*": {
     "target": "http://ticketmgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/api/ticket/createTicket",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,
     "pathRewrite": {
-      "^/create-ticket": ""
+      "^/api/ticket/createTicket": ""
     }
   }
 }

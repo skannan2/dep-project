@@ -21,7 +21,7 @@
             <div class="col-sm-10">
               <div class="md-form mt-0">
                 <input mdbInput mdbValidate formControlName="uname" type="text" class="form-control" id="inputEmail3MD" placeholder="User Name">
-                <!-- <mdb-error *ngIf="uname.invalid && (uname.dirty || uname.touched)">User Name is required</mdb-error> -->
+                <mdb-error *ngIf="uname.invalid && (uname.dirty || uname.touched)">User Name is required</mdb-error>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@
             <div class="col-sm-10">
               <div class="md-form mt-0">
                 <input mdbInput mdbValidate formControlName="pwd" type="password" class="form-control" id="inputPassword3MD" placeholder="Password">
-                <!-- <mdb-error *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)">Password is required</mdb-error> -->
+                <mdb-error *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)">Password is required</mdb-error>
               </div>
             </div>
           </div>
@@ -43,7 +43,7 @@
           <!-- Grid row -->
           <div class="form-group row">
             <div class="col-sm-10">
-              <button type="button" class="btn btn-primary btn-md" (click)='login()'>Sign in</button>
+              <button type="button" class="btn btn-primary btn-md" [disabled]='!LoginForm.valid' (click)='login()'>Sign in</button>
 
               <button type="button" class="btn btn-danger btn-md" (click)='openModal()'>Register</button>
             </div>
