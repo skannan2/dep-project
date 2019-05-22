@@ -11,42 +11,40 @@
       <input type="text" id="form3" class="form-control">
       <label for="form3">User Name</label>
     </div> -->
-  <form [formGroup]="ticketForm" (submit)="saveUser()">
-    <div class="md-form">
-      <input formControlName="title" id="title"  mdbInput type="text" class="form-control">
-      <label for="title" class="">Title</label>
-    </div>
+    <form [formGroup]="ticketForm" (submit)="saveUser()">
+      <div class="md-form">
+        <input formControlName="title" id="title" mdbInput type="text" class="form-control">
+        <label for="title" class="">Title</label>
+      </div>
 
-    <div class="md-form mb-5">
-      <!-- <i class="fas fa-envelope prefix"></i> -->
-      <input formControlName="email"  type="email" id="email"  class="form-control"
-      mdbInput>
-      <label data-error="wrong" data-success="right" for="email">Your email</label>
-    </div>
-    <div class="md-form">
-      <!-- <i class="fas fa-pencil-alt prefix"></i> -->
-      <textarea type="text" id="form8" 
-      formControlName="desc" 
-      class="md-textarea form-control" mdbInput></textarea>
-      <label for="desc">Description</label>
-    </div>
-    <div class="form-group">
+      <div class="md-form mb-5">
+        <!-- <i class="fas fa-envelope prefix"></i> -->
+        <input formControlName="email" type="email" id="email" class="form-control" mdbInput>
+        <label data-error="wrong" data-success="right" for="email">Your email</label>
+      </div>
+      <div class="md-form">
+        <!-- <i class="fas fa-pencil-alt prefix"></i> -->
+        <textarea type="text" id="form8" formControlName="desc" class="md-textarea form-control" mdbInput></textarea>
+        <label for="desc">Description</label>
+      </div>
+      <div class="form-group">
         <label for="priority">Priority:</label>
-        <select class="form-control" id="priority" formControlName="priority" >
+        <select class="form-control" id="priority" formControlName="priority">
           <option>High</option>
           <option>Medium</option>
           <option>Low</option>
         </select>
-    </div>
+      </div>
 
-    <div class="md-form">
-      <input mdbInput type="text" id="phone" class="form-control" formControlName="phone" >
-      <label for="phone" class="">Phone</label>
-    </div>
-  </form>
+      <div class="md-form">
+        <input mdbInput type="text" id="phone" class="form-control" formControlName="phone">
+        <label for="phone" class="">Phone</label>
+      </div>
+    </form>
   </div>
   <div class="modal-footer">
     <button type="button" mdbBtn color="danger" class="waves-light pull-left" aria-label="Close" (click)="modalRef.hide()" mdbWavesEffect>Close</button>
-    <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+    <button type="button" mdbBtn color="primary" class="relative waves-light" *ngIf="!formData" mdbWavesEffect (click)="save()">Save!</button>
+    <button type="button" mdbBtn color="primary" class="relative waves-light" *ngIf="formData" mdbWavesEffect (click)="update()">Update!</button>
   </div>
 </div>

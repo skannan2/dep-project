@@ -19,8 +19,8 @@ export class UserHomeComponent implements OnInit {
     containerClass: '',
     animated: true,
     data: {
-        heading: 'Create New Ticket',
-        content: { heading: 'Content heading', description: 'Content description'}
+      heading: 'Create New Ticket',
+      content: { heading: 'Content heading', description: 'Content description' }
     },
     formData: {}
   };

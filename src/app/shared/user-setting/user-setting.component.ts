@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -13,29 +13,34 @@ export class UserSettingComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<UserSettingComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb : FormBuilder) { }
+    private fb: FormBuilder) { }
 
   ngOnInit() {
-    if(this.data){
+    if (this.data) {
       this.settingsForm = this.fb.group({
-      'name': [this.data.name, Validators.required],
-      'email': [this.data.email, Validators.required],
-      'phone': [this.data.phone, [Validators.required]],
-      'mobile': [this.data.mobile, Validators.required],
-      'location': [this.data.location, Validators.required],
-      'address': [this.data.address, Validators.required],
-    });
+        'userName': [this.data.userName, Validators.required],
+        'email': [this.data.email, Validators.required],
+        'phoneNumber': [this.data.phoneNumber, [Validators.required]],
+        'mobile': [this.data.mobile, Validators.required],
+        'location': [this.data.location, Validators.required],
+        'address': [this.data.address, Validators.required],
+      });
     } else {
       this.settingsForm = this.fb.group({
-      'name': ['', Validators.required],
-      'email': ['', Validators.required],
-      'phone': ['', [Validators.required]],
-      'mobile': ['', Validators.required],
-      'location': ['', Validators.required],
-      'address': ['', Validators.required],
-    })
+        'userName': ['', Validators.required],
+        'email': ['', Validators.required],
+        'phoneNumber': ['', [Validators.required]],
+        'mobile': ['', Validators.required],
+        'location': ['', Validators.required],
+        'address': ['', Validators.required],
+      })
+    }
+
   }
 
-}
+  update() {
+    this.dialogRef.close(this.settingsForm.value)
+
+  }
 
 }

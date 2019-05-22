@@ -23,8 +23,19 @@ export class ApiService {
   getUserTickets() {
     return this.http.get('assets/userdashboard.json');
   }
+
+  createTickets(payload) {
+    return this.http.post('/api/ticket/createTicket/', payload, { observe: 'response' }).pipe(map((response) => {
+      console.log('response', response);
+      if (response) {
+        console.log('response', response);
+        return response;
+      }
+    }));
+  }
+
   registerUser(payload) {
-    return this.http.post('/create-user', payload, { observe: 'response' }).pipe(map((response) => {
+    return this.http.post('/user/create/', payload, { observe: 'response' }).pipe(map((response) => {
       console.log('response', response);
       if (response) {
         console.log('response', response);
@@ -62,7 +73,7 @@ export class ApiService {
   }
 
   login(user: { userName: string, password: string }): Observable<any> {
-    return this.http.post<any>(`/user-login`, user, { observe: 'response' })
+    return this.http.post<any>(`/login`, user, { observe: 'response' })
       .pipe(
         // tap(tokens => console.log(tokens)),
         // mapTo(true),

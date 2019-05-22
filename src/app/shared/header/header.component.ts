@@ -44,22 +44,19 @@ export class HeaderComponent implements OnInit {
         }
       });
     } else {
-      let mockUserData = {
-        'name': 'Murali',
-        'email': 'Murali.test@gmail.com',
-        'phone': '+91-7845303005',
-        'mobile': '+91-7845303005',
-        'location': 'India',
-        'address': 'XYZ street,chennai '
-      }
-      this.service.getUserDetails().subscribe(data => console.log(data))
-      const dialogRef = this.dialog.open(UserSettingComponent, {
-        //height: '80vh',
-        data: mockUserData
-      });
+      this.service.getUserDetails().subscribe(data => {
+        const dialogRef = this.dialog.open(UserSettingComponent, {
+          data
+        });
 
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(result, 'The dialog was closed');
+
+        dialogRef.afterClosed().subscribe(result => {
+          if (result) {
+            console.log(result)
+            this.service.updateUserDetails(result).subscribe(res => { console.log(res) })
+          }
+        });
+
       });
 
     }
