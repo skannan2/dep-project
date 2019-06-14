@@ -25,7 +25,7 @@ export class ApiService {
   }
 
   registerUser(payload) {
-    return this.http.post('/user/create', payload);
+    return this.http.post('/api/user/create', payload);
   }
 
   getOrderDetails() {
