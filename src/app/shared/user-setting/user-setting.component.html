@@ -8,7 +8,7 @@
 <mat-divider></mat-divider>
 
 <mat-dialog-content class="content">
-  <form [formGroup]="settingsForm" (submit)="updateOrder()">
+  <form [formGroup]="settingsForm" (submit)="update()">
     <div class="form-container">
       <mat-form-field>
         <input matInput formControlName="userName" placeholder="Name">
