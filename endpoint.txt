@@ -1,5 +1,5 @@
 User Mgmt Service - http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com 
-Ticket Mgmt Service - http://ticketmgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com
+Ticket Mgmt Service -     
 
 
 User Service Details

@@ -1,57 +1,58 @@
-
 <div class="header">
   <div class="title">Ticket Details</div>
-  <div><button mat-icon-button mat-dialog-close>X</button></div>
+  <div>
+    <button mat-icon-button mat-dialog-close>X</button>
+  </div>
 </div>
 
 <mat-divider></mat-divider>
 
 <mat-dialog-content class="content">
-<form [formGroup]="ticketForm" (submit)="updateOrder()">
-  <div class="form-container">
-  <mat-form-field>
-    <input matInput formControlName="title" placeholder="Title" readonly>
-  </mat-form-field>
+  <form [formGroup]="ticketForm" (submit)="update()">
+    <div class="form-container">
+      <mat-form-field>
+        <input matInput formControlName="title" placeholder="Title" readonly>
+      </mat-form-field>
 
-  <mat-form-field>
-    <input matInput formControlName="description" placeholder="Description" readonly>
-  </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="description" placeholder="Description" readonly>
+      </mat-form-field>
 
-  <mat-form-field>
-    <input matInput formControlName="email" placeholder="email" readonly>
-  </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="email" placeholder="email" readonly>
+      </mat-form-field>
 
-  <mat-form-field class="half-width">
-    <input matInput formControlName="phone" placeholder="phone" readonly>
-  </mat-form-field>
+      <mat-form-field class="half-width">
+        <input matInput formControlName="phone" placeholder="phone" readonly>
+      </mat-form-field>
 
-  <mat-form-field class="half-width">
-    <input matInput formControlName="priority" placeholder="priority" readonly>
-  </mat-form-field>
+      <mat-form-field class="half-width">
+        <input matInput formControlName="priority" placeholder="priority" readonly>
+      </mat-form-field>
 
-  <mat-form-field class="half-width">
-    <mat-select placeholder="Status">
-      <mat-option *ngFor="let status of ticketStatus" [value]="status.value" >
-      {{status.viewValue}}
-    </mat-option>
-    </mat-select>
-  </mat-form-field>
+      <mat-form-field class="half-width">
+        <mat-select placeholder="Status">
+          <mat-option *ngFor="let status of ticketStatus" [value]="status.value">
+            {{status.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-  <mat-form-field>
-    <textarea matInput formControlName="comments" placeholder="Comments"></textarea>
-  </mat-form-field>
+      <mat-form-field>
+        <textarea matInput formControlName="comments" placeholder="Comments"></textarea>
+      </mat-form-field>
 
-  </div>
+    </div>
 
-  
-</form>
+
+  </form>
 
 </mat-dialog-content>
 
 <mat-divider></mat-divider>
 <mat-dialog-actions>
   <div class="footer">
-    <div >
+    <div>
       <button mat-raised-button mat-dialog-close>Close</button>
       <button mat-raised-button [mat-dialog-close]="'update'" color="primary">Update</button>
     </div>

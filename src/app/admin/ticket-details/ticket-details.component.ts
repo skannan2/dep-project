@@ -3,7 +3,7 @@ import { ApiService } from '../../core/api/api.service';
 import { FormControl, Validators, FormBuilder } from '@angular/forms';
 import { DialogRenderComponent } from '../../shared/dialog-render/dialog-render.component';
 import { TicketModalComponent } from './ticket-modal/ticket-modal.component';
-import { MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-ticket-details',
@@ -15,7 +15,7 @@ export class TicketDetailsComponent implements OnInit {
   columnDefs: any;
   constructor(
     private api: ApiService,
-    public dialog: MatDialog ) { }
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.api.getUserTickets().subscribe(data => this.rowData = data);
@@ -32,9 +32,9 @@ export class TicketDetailsComponent implements OnInit {
       },
       {
         headerName: 'Title',
-         field: 'title',
-         cellClass: 'cell-wrap-text',
-         autoHeight: true
+        field: 'title',
+        cellClass: 'cell-wrap-text',
+        autoHeight: true
       },
       {
         headerName: 'Description',
@@ -55,14 +55,14 @@ export class TicketDetailsComponent implements OnInit {
         autoHeight: true
       },
       {
-         headerName: 'Date',
-         field: 'date' ,
-         cellClass: 'cell-wrap-text',
-         autoHeight: true
-        },
+        headerName: 'Date',
+        field: 'date',
+        cellClass: 'cell-wrap-text',
+        autoHeight: true
+      },
       {
         headerName: 'Status',
-        field: 'status' ,
+        field: 'status',
         cellClass: 'cell-wrap-text',
         autoHeight: true
       }
@@ -70,7 +70,7 @@ export class TicketDetailsComponent implements OnInit {
   }
 
 
-  onViewTicket (params) {
+  onViewTicket(params) {
 
     const dialogRef = this.dialog.open(TicketModalComponent, {
       height: '80vh',
@@ -78,9 +78,9 @@ export class TicketDetailsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The dialog was closed', result);
     });
-    
+
   }
 
 }

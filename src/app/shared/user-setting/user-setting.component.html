@@ -1,50 +1,51 @@
-
 <div class="header">
   <div class="title">Profile Settings</div>
-  <div><button mat-icon-button (click)="dialogRef.close()">X</button></div>
+  <div>
+    <button mat-icon-button (click)="dialogRef.close()">X</button>
+  </div>
 </div>
 
 <mat-divider></mat-divider>
 
 <mat-dialog-content class="content">
-<form [formGroup]="settingsForm" (submit)="updateOrder()">
-  <div class="form-container">
-  <mat-form-field>
-    <input matInput formControlName="name" placeholder="Name" >
-  </mat-form-field>
+  <form [formGroup]="settingsForm" (submit)="update()">
+    <div class="form-container">
+      <mat-form-field>
+        <input matInput formControlName="userName" placeholder="Name">
+      </mat-form-field>
 
-  <mat-form-field>
-    <input matInput formControlName="email" placeholder="email" >
-  </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="email" placeholder="email">
+      </mat-form-field>
 
-  <mat-form-field class="half-width">
-    <input matInput formControlName="phone" placeholder="office-phone" >
-  </mat-form-field>
+      <mat-form-field class="half-width">
+        <input matInput formControlName="phoneNumber" placeholder="office-phone">
+      </mat-form-field>
 
-  <mat-form-field class="half-width">
+      <!-- <mat-form-field class="half-width">
     <input matInput formControlName="mobile" placeholder="mobile-phone" >
   </mat-form-field>
 
   <mat-form-field>
     <input matInput formControlName="location" placeholder="Location" >
-  </mat-form-field>
+  </mat-form-field> -->
 
-  <mat-form-field>
-    <textarea matInput formControlName="address" placeholder="Address"></textarea>
-  </mat-form-field>
+      <mat-form-field>
+        <textarea matInput formControlName="address" placeholder="Address"></textarea>
+      </mat-form-field>
 
-  </div>
+    </div>
 
-  
-</form>
+
+  </form>
 
 </mat-dialog-content>
 
 <mat-divider></mat-divider>
 <mat-dialog-actions>
   <div class="footer">
-    <div >
-      <button mat-raised-button (click)="dialogRef.close('update')" color="primary">Update</button>
+    <div>
+      <button mat-raised-button (click)="update()" color="primary">Update</button>
       <button mat-raised-button (click)="dialogRef.close()">Close</button>
     </div>
   </div>
