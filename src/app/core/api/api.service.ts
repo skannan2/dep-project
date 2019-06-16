@@ -4,6 +4,8 @@ import { of, Observable } from 'rxjs';
 import { catchError, mapTo, tap, map } from 'rxjs/operators';
 import { config } from '../config';
 // import { Tokens } from '../models/tokens';
+import { environment } from '../../../environments/environment';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,11 +23,21 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getUserTickets() {
-    return this.http.get('assets/userdashboard.json');
+    const payload = {
+      createby: JSON.parse(localStorage.getItem('user'))
+    };
+    // return this.http.get('assets/userdashboard.json');
+    return this.http.post(`${environment.backend.ticketURL}/ticket/queryTicket`, payload, { observe: 'response' }).pipe(map((response) => {
+      console.log('response', response);
+      if (response) {
+        console.log('response', response);
+        return response;
+      }
+    }));
   }
 
   createTickets(payload) {
-    return this.http.post('/api/ticket/createTicket/', payload, { observe: 'response' }).pipe(map((response) => {
+    return this.http.post(`${environment.backend.ticketURL}/ticket/createTicket`, payload, { observe: 'response' }).pipe(map((response) => {
       console.log('response', response);
       if (response) {
         console.log('response', response);
@@ -35,7 +47,7 @@ export class ApiService {
   }
 
   registerUser(payload) {
-    return this.http.post('/user/create/', payload, { observe: 'response' }).pipe(map((response) => {
+    return this.http.post(`${environment.backend.userURL}/api/user/create/`, payload, { observe: 'response' }).pipe(map((response) => {
       console.log('response', response);
       if (response) {
         console.log('response', response);
@@ -51,7 +63,7 @@ export class ApiService {
   getUserDetails() {
     const user = JSON.parse(localStorage.getItem('user'));
     const token = JSON.parse(localStorage.getItem('token'));
-    return this.http.get('/user/username/' + user, {
+    return this.http.get(`${environment.backend.userURL}/api/user/username/` + user, {
       headers: {
         'Authorization': token,
       }
@@ -61,7 +73,7 @@ export class ApiService {
   updateUserDetails(userData) {
     const user = JSON.parse(localStorage.getItem('user'));
     const token = JSON.parse(localStorage.getItem('token'));
-    return this.http.put('user/username/' + user, userData, {
+    return this.http.put(`${environment.backend.userURL}/api/user/` + user, userData, {
       headers: {
         'Authorization': token,
       }
@@ -73,7 +85,7 @@ export class ApiService {
   }
 
   login(user: { userName: string, password: string }): Observable<any> {
-    return this.http.post<any>(`/login`, user, { observe: 'response' })
+    return this.http.post<any>(`${environment.backend.userURL}/login`, user, { observe: 'response' })
       .pipe(
         // tap(tokens => console.log(tokens)),
         // mapTo(true),

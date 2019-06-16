@@ -8,24 +8,27 @@
       "^/login": ""
     }
   },
-  "/user/*": {
-    "target": "http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/user",
+  "/api/*": {
+    "target": "http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/api",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,
     "pathRewrite": {
-      "^/user/create": "/create",
-      "^/user/username": "/username",
-      "^/user/update": "/update"
+      "^/api/user/create": "/user/create",
+      "^/api/user/username": "/user/username",
+      "^/api/user/update": "/user/update",
+      "^/api/user": "/user",
+      "^/api/user/get": "/user/get"
     }
   },
-  "/api/ticket/createTicket/*": {
-    "target": "http://ticketmgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/api/ticket/createTicket",
+  "/ticket/*": {
+    "target": "http://ticketmgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/api",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,
     "pathRewrite": {
-      "^/api/ticket/createTicket": ""
+      "^/ticket/createTicket": "/ticket/createTicket",
+      "^/ticket/queryTicket": "/ticket/queryTicket"
     }
   }
 }

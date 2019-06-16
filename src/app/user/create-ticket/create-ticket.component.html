@@ -11,7 +11,7 @@
       <input type="text" id="form3" class="form-control">
       <label for="form3">User Name</label>
     </div> -->
-    <form [formGroup]="ticketForm" (submit)="saveUser()">
+    <form [formGroup]="ticketForm" (submit)="save()">
       <div class="md-form">
         <input formControlName="title" id="title" mdbInput type="text" class="form-control">
         <label for="title" class="">Title</label>
