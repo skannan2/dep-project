@@ -1,50 +1,129 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { of, Observable } from 'rxjs';
-import { catchError, mapTo, tap } from 'rxjs/operators';
-import { config } from '../config';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { of, Observable } from "rxjs";
+import { catchError, mapTo, tap, map } from "rxjs/operators";
+import { config } from "../config";
 // import { Tokens } from '../models/tokens';
+import { environment } from "../../../environments/environment";
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ "Content-Type": "application/json" })
 };
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ApiService {
-
-  private readonly JWT_TOKEN = 'JWT_TOKEN';
+  private readonly JWT_TOKEN = "JWT_TOKEN";
   // private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private loggedUser: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getUserTickets() {
-    return this.http.get('assets/userdashboard.json');
+    const payload = {
+      createby: JSON.parse(localStorage.getItem("user"))
+    };
+    console.log(`${environment.backend.ticketURL}`);
+    // return this.http.get('assets/userdashboard.json');
+    return this.http
+      .post(`${environment.backend.ticketURL}/ticket/queryTicket`, payload, {
+        observe: "response"
+      })
+      .pipe(
+        map(response => {
+          console.log("response", response);
+          if (response) {
+            console.log("response", response);
+            return response;
+          }
+        })
+      );
+  }
+
+  createTickets(payload) {
+    return this.http
+      .post(`${environment.backend.ticketURL}/ticket/createTicket`, payload, {
+        observe: "response"
+      })
+      .pipe(
+        map(response => {
+          console.log("response", response);
+          if (response) {
+            console.log("response", response);
+            return response;
+          }
+        })
+      );
   }
 
   registerUser(payload) {
-    return this.http.post('/api/user/create', payload);
+    console.log(`${environment.backend.userURL}`);
+    return this.http
+      .post(`${environment.backend.userURL}/api/user/create/`, payload, {
+        observe: "response"
+      })
+      .pipe(
+        map(response => {
+          console.log("response", response);
+          if (response) {
+            console.log("response", response);
+            return response;
+          }
+        })
+      );
   }
 
   getOrderDetails() {
-    return this.http.get('assets/orderdetails.json');
+    return this.http.get("assets/orderdetails.json");
+  }
+
+  getUserDetails() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token = JSON.parse(localStorage.getItem("token"));
+    return this.http.get(
+      `${environment.backend.userURL}/api/user/username/` + user,
+      {
+        headers: {
+          Authorization: token
+        }
+      }
+    );
+  }
+
+  updateUserDetails(userData) {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token = JSON.parse(localStorage.getItem("token"));
+    return this.http.put(
+      `${environment.backend.userURL}/api/user/` + user,
+      userData,
+      {
+        headers: {
+          Authorization: token
+        }
+      }
+    );
   }
 
   getTicketDetails() {
-    return this.http.get('assets/ticketdetails.json');
+    return this.http.get("assets/ticketdetails.json");
   }
 
-  login(user: { userName: string, password: string }): Observable<boolean> {
-    return this.http.post<any>(`/user-login`, user)
+  login(user: { userName: string; password: string }): Observable<any> {
+    console.log(`${environment.backend.userURL}`);
+    return this.http
+      .post<any>(`${environment.backend.userURL}/login`, user, {
+        observe: "response"
+      })
       .pipe(
-        tap(tokens => console.log(tokens)),
-        mapTo(true),
+        // tap(tokens => console.log(tokens)),
+        // mapTo(true),
+        map(res => res),
         catchError(error => {
           alert(error.error);
           return of(false);
-        }));
+        })
+      );
   }
 
   logout() {
@@ -60,9 +139,9 @@ export class ApiService {
     //   }));
   }
 
-
   isLoggedIn() {
-    return !!this.getJwtToken();
+    return true;
+    // return !!this.getJwtToken();
   }
 
   // refreshToken() {
@@ -104,7 +183,4 @@ export class ApiService {
     localStorage.removeItem(this.JWT_TOKEN);
     // localStorage.removeItem(this.REFRESH_TOKEN);
   }
-
 }
-
-
