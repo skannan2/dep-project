@@ -112,7 +112,7 @@ export class ApiService {
   login(user: { userName: string; password: string }): Observable<any> {
     console.log(`${environment.backend.userURL}`);
     return this.http
-      .post<any>(`${environment.backend.userURL}/login`, user, {
+      .post<any>(`http://usermgmtservice-cdb-openshift-poc.apps.na311.openshift.opentlc.com/login`, user, {
         observe: "response"
       })
       .pipe(
